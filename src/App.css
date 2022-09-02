@@ -79,7 +79,7 @@ select {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-  align-items: top;
+  align-items: center;
   justify-content: top;
   margin-top: 100px;
   text-transform: uppercase;
@@ -89,6 +89,17 @@ select {
   visibility: visible;
 }
 
+.consulta {
+  padding: 10px;
+}
+
+.resultados {
+  border: 3px solid #1b4272;
+  width: 220px;
+  padding: 20px;
+  margin-top: 30px;
+  display: flexbox;
+}
 /* .App-link {
   color: #61dafb;
 } */

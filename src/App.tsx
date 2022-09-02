@@ -1,47 +1,42 @@
 
 import './App.css';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function App() {
 
-  // useEffect(() => {
-  
-  //   axios.get('https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoDolarDia')
-  //     .then((response) => {
-  //       const brewerieChegando = response.data;
-  //       console.log(brewerieChegando)
-  //       setArray(brewerieChegando);
-  //     });
-  // }, [solicitar_cotacao()]);
-
-  // const  solicitar_cotacao( = ( chave : any, valor: any ) => {
-  //   localStorage.setItem(chave, valor);
-  //   window.location.replace("/breweriesHome")
-  // }
-  // )
   const [ date, setDate ] = useState("");
-  const [ UltimaDataConsultada, setUltimaDataConsultada ] = useState("");
+  const [ contacaoVenda, setContacaoVenda ] = useState("");
+  const [ contacaoCompra, setContacaoCompra ] = useState("");
+  const ultimaDataConsultada = localStorage.getItem("ultimaData");
 
-  useEffect(() => {
-    setUltimaDataConsultada(date)
-  }, []);
 
   function solicitar_cotacao(chave:any, date: any) {
-    console.log(date)
+    localStorage.setItem(chave, date);
   }
+
+
+  useEffect(() => {
+    if (ultimaDataConsultada) {
+      const arrayData = ultimaDataConsultada.split('-')
+      const dataFormatada = arrayData[1] + "-" + arrayData[2] + "-" + arrayData[0]
+      axios.get(`https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?%40dataCotacao='${dataFormatada}'&%24format=json`, {
+      headers: {
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods':'GET'
+      }})
+      .then((response) => {
+
+        const cotacaoNestData = response.data
+        setContacaoVenda(cotacaoNestData.value[0].cotacaoVenda)
+        setContacaoCompra(cotacaoNestData.value[0].cotacaoCompra)
+        
+      });
+    }
+  }, [ultimaDataConsultada]);
+
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
       <header>
         <nav className="barra-navegacao">
           <span> Dolar Price Every Day </span>   
@@ -50,20 +45,31 @@ function App() {
       <body className="App-header">
         <div>
           <span>
-            Qual data gostaria de consultar a cotacao de hoje?
+            Qual data gostaria de consultar a Cotação de hoje?
           </span> <br/>
         </div>
         <form>
           <div className="dataCotacao">
-            <input id="date" value={date} type="date" name="data-inserida" onChange={(e) => setDate(e.target.value)}/>
+            <input id="date" type="date" name="data-inserida" onChange={(e) => setDate(e.target.value)}/>
           </div>
           <div className="btn">
             <input id="btn-submit" onClick={() => solicitar_cotacao('ultimaData', date)} name="btn" type="submit" value="Consultar"></input>
           </div>
         </form>
-        {/* // <div>
-        //   <input type="text" value={UltimaDataConsultada}/>
-        // </div> */}
+        <div className="resultados">
+          <div className="consulta">
+            <span>Data consultada</span>
+            <div><label>{ultimaDataConsultada}</label></div>
+          </div>
+          <div className="consulta">
+            <span>Cotação de Compra</span>
+            <div><label>{contacaoCompra}</label></div>
+          </div>
+          <div className="consulta">
+            <span>Cotação de Venda</span>
+            <div> <label>{contacaoVenda}</label></div>
+          </div>          
+        </div>
       </body>
 
     </div>
@@ -71,6 +77,4 @@ function App() {
 }
 
 export default App;
-
-// https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoDolarDia]
 

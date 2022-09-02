@@ -22,9 +22,19 @@ Executar testes
 
 ### 📋 Pré-requisitos
 
-Instalar 
+Instalar Node
 ```
 Node.JS
+```
+
+Instalar AXIOS
+```
+npm install axios
+```
+
+Em caso de que dee algum eerro de CORS, instalar 
+```
+npm i cors
 ```
 ### 🚀 Run
 
