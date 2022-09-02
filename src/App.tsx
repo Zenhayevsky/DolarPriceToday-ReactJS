@@ -48,12 +48,17 @@ function App() {
           <span>
             Qual data gostaria de consultar a Cotação de hoje?
           </span> <br/>
+          <div className="aviso">
+              <span> Por favor, certifique-se que a data inserida seja a do dia de hoje ou dias anteriores</span>
+          </div>
+
         </div>
         <form>
           <span>
             <img className="imagemDolar" src={dolar}/></span>
           <div className="dataCotacao">
             <input id="date" type="date" name="data-inserida" onChange={(e) => setDate(e.target.value)}/>
+
           </div>
           <div className="btn">
             <input id="btn-submit" onClick={() => solicitar_cotacao('ultimaData', date)} name="btn" type="submit" value="Consultar"></input>

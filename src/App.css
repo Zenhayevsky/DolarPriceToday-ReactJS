@@ -97,6 +97,12 @@ select {
   margin-left: 95px
 }
 
+.aviso {
+  font-size: 10px;
+  color:#052853;
+  font-weight: bold;
+}
+
 .infoData {
   font-size: 12px;
   color: #1b4272;
