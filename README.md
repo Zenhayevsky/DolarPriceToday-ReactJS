@@ -36,7 +36,13 @@ Em caso de que dee algum eerro de CORS, instalar
 ```
 npm i cors
 ```
+Necessário Dockeer estar instalado na maquina. Para instalar, acessar:
+```
+https://docs.docker.com/get-docker/
+```
 ### 🚀 Run
+
+Certifique-se que o docker eesteja aberto e rodando.
 
 ```
 yarn start

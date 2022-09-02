@@ -89,6 +89,20 @@ select {
   visibility: visible;
 }
 
+.imagemDolar  {
+  position:absolute;
+  height: 30px;
+  float: right;
+  margin-top: 390px;
+  margin-left: 95px
+}
+
+.infoData {
+  font-size: 12px;
+  color: #1b4272;
+
+}
+
 .consulta {
   padding: 10px;
 }
