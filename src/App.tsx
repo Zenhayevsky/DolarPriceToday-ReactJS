@@ -1,5 +1,6 @@
 
 import './App.css';
+import dolar from './dolar.png'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -49,6 +50,8 @@ function App() {
           </span> <br/>
         </div>
         <form>
+          <span>
+            <img className="imagemDolar" src={dolar}/></span>
           <div className="dataCotacao">
             <input id="date" type="date" name="data-inserida" onChange={(e) => setDate(e.target.value)}/>
           </div>
@@ -59,15 +62,16 @@ function App() {
         <div className="resultados">
           <div className="consulta">
             <span>Data consultada</span>
+            <div className="infoData"><label>ano-mes-dia</label></div>
             <div><label>{ultimaDataConsultada}</label></div>
           </div>
           <div className="consulta">
             <span>Cotação de Compra</span>
-            <div><label>{contacaoCompra}</label></div>
+            <div><label>R$ {contacaoCompra}</label></div>
           </div>
           <div className="consulta">
             <span>Cotação de Venda</span>
-            <div> <label>{contacaoVenda}</label></div>
+            <div> <label>R$ {contacaoVenda}</label></div>
           </div>          
         </div>
       </body>
@@ -77,4 +81,3 @@ function App() {
 }
 
 export default App;
-
