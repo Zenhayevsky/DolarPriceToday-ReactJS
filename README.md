@@ -1,53 +1,45 @@
 # DolarPriceEveryDay
 
-Projeto desenvolvido para processo seletivo da Stefanini Group.
-Consiste numa aplicacao com seu frontend em react e uma API simples. Resalta-se que 
-Os dados de acesso para o banco estao no projeto mas sabe-se que nao é uma boa pratica.
-Visto que sera um repositorio privado e com banco apenas para esta avaliacao, nao serao 
-armazenados dados pessoais do usuario por precausao. 
+This project consists in a frontend react application and a simple API in order to provide the data we need.
+No personal data is stored as a precaution.
 
-## 🚀 Preparando o ambiente
-A seguir, sera apresentado o passo a passo para : 
+## 🚀 Preparing the environment
 
-Instalar Pré-requisitos
-**[Pré-requisitos](#-Pré-requisitos)**
+Install Prerequisites
+**[Prerequisites](#-Prerequisites)**
 
 
-Rodar o projeto
+Run the project
 **[Run](#-Run)**
 
 
-Executar testes
+Run tests
 **[Tests](#-Tests)**
 
-### 📋 Pré-requisitos
-
-Instalar Node
+### 📋 Prerequisites
 ```
 Node.JS
 ```
 
-Instalar AXIOS
 ```
 npm install axios
 ```
 
-Em caso de que dee algum eerro de CORS, instalar 
 ```
 npm i cors
 ```
-Necessário Dockeer estar instalado na maquina. Para instalar, acessar:
+Dockeer must be installed on the machine. To install, go to:
 ```
 https://docs.docker.com/get-docker/
 ```
 ### 🚀 Run
 
-Certifique-se que o docker eesteja aberto e rodando.
+Make sure docker is open and running.
 
 ```
 yarn start
 ```
-O projeto estara rodando na porta http://localhost:3000
+The project will be running on the door http://localhost:3000
 
 ## ⚙ Tests
 
