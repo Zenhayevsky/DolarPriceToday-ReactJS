@@ -9,6 +9,7 @@ function App() {
   const [ date, setDate ] = useState("");
   const [ contacaoVenda, setContacaoVenda ] = useState("");
   const [ contacaoCompra, setContacaoCompra ] = useState("");
+
   const ultimaDataConsultada = localStorage.getItem("ultimaData");
 
 
@@ -27,7 +28,7 @@ function App() {
         'Access-Control-Allow-Methods':'GET'
       }})
       .then((response) => {
-
+        console.log(dataFormatada)
         const cotacaoNestData = response.data
         setContacaoVenda(cotacaoNestData.value[0].cotacaoVenda)
         setContacaoCompra(cotacaoNestData.value[0].cotacaoCompra)
@@ -51,36 +52,56 @@ function App() {
           <div className="aviso">
               <span> Por favor, certifique-se que a data inserida seja a do dia de hoje ou dias anteriores</span>
           </div>
-
         </div>
         <form>
           <span>
-            <img className="imagemDolar" src={dolar}/></span>
+            <img className="imagemDolar" src={dolar}/>
+          </span>
           <div className="dataCotacao">
             <input id="date" type="date" name="data-inserida" onChange={(e) => setDate(e.target.value)}/>
-
           </div>
           <div className="btn">
             <input id="btn-submit" onClick={() => solicitar_cotacao('ultimaData', date)} name="btn" type="submit" value="Consultar"></input>
           </div>
         </form>
-        <div className="resultados">
+        <div className="restults">
           <div className="consulta">
-            <span>Data consultada</span>
-            <div className="infoData"><label>ano-mes-dia</label></div>
-            <div><label>{ultimaDataConsultada}</label></div>
+            <span>
+              Data consultada
+            </span>
+            <div className="infoData">
+              <label>
+                ano-mes-dia
+              </label>
+            </div>
+            <div>
+              <label>
+                {ultimaDataConsultada}
+              </label>
+            </div>
           </div>
           <div className="consulta">
-            <span>Cotação de Compra</span>
-            <div><label>R$ {contacaoCompra}</label></div>
+            <span>
+              Cotação de Compra
+            </span>
+            <div>
+              <label>
+                R$ {contacaoCompra}
+              </label>
+            </div>
           </div>
           <div className="consulta">
-            <span>Cotação de Venda</span>
-            <div> <label>R$ {contacaoVenda}</label></div>
+            <span>
+              Cotação de Venda
+            </span>
+            <div>
+              <label>
+                R$ {contacaoVenda}
+              </label>
+            </div>
           </div>          
         </div>
       </body>
-
     </div>
   );
 }

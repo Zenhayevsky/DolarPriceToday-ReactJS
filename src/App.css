@@ -23,11 +23,11 @@
 #date {
   color: #eb6909;
   border-radius: 3px;
-  border-color: #eb6909;
   border-width: 2px;
   height: 25px;
-  padding: 3px;
+  padding: 5px;
   width: 110px;
+  border: 2px solid #eb6909;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -37,31 +37,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #btn-submit {
   max-width: 100px;
-  box-shadow: 0 0 1em;
+  box-shadow: 0 0 1em rgba(117, 185, 123, 0.7);
   background: rgba(117, 185, 123, 0.7);
   border-radius: 30px;
-  border-color: #91bfa5;
-  color: rgb(18, 80, 67);
+  border-color: transparent;
+  color: white;
   font-weight:bold;
-  width: 190px; 
-  border-radius:26px; 
+  width: 190px;
   padding: 12px;
 }
 
 .btn {
    margin-top: 30px;
 }
-/* 
-#inputs-div {
-  width: 100%;
-  text-align: center;
-}
-
-.inputdata {
-  display: inline-block;
-  width: 100px;
-  margin-left: 0px;
-} */
 
 select {
   width: 70px;
@@ -113,22 +101,12 @@ select {
   padding: 10px;
 }
 
-.resultados {
-  border: 3px solid #1b4272;
+.restults {
+  border: 5px solid #1b4272;
   width: 220px;
   padding: 20px;
   margin-top: 30px;
   display: flexbox;
+  border-radius: 10px;
+  box-shadow: 0.5em 0.5em 01em #1b4272;
 }
-/* .App-link {
-  color: #61dafb;
-} */
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
